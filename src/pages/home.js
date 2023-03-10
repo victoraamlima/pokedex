@@ -2,10 +2,10 @@ import { PokemonList } from "../components/pokemons-list/pokemons-list"
 
 const Home = () => {
     return (
-        <>
-            <h1>list of Pokemon's</h1>
+        <div className="app">
+            <h1>Pokedex</h1>
             <PokemonList />
-        </>
+        </div>
     )
 }
 

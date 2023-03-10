@@ -1,9 +1,10 @@
 import { AppRoutes } from "./pages/routes"
+import "./App.css"
 
 function App() {
   return (
     <>
-    <AppRoutes />
+      <AppRoutes className="app" />
     </>
   );
 }
