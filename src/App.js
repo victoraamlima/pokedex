@@ -4,7 +4,8 @@ import "./App.css"
 function App() {
   return (
     <>
-      <AppRoutes className="app" />
+      <h1>Hello, World!</h1>
+      <AppRoutes  className="app" />
     </>
   );
 }

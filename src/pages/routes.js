@@ -4,7 +4,7 @@ import { PokemonPage } from "./pokemonPage"
 
 const AppRoutes = () => (
     
-    <BrowserRouter>
+    <BrowserRouter data-testid="AppRoutes">
         <Routes>
             <Route exact path="/pokemons" element={<Home />} />
             <Route exact path="/pokemon/:name" element={<PokemonPage />} />
