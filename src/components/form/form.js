@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { FilterIcon, Span } from "./styled"
 
 const Form = ({ getType, applyFilter }) => {
     const [types, setTypes] = useState([
@@ -7,7 +8,13 @@ const Form = ({ getType, applyFilter }) => {
 
     return (
         <>
-            <form onSubmit={applyFilter} >
+            <FilterIcon>
+                <Span />
+            </FilterIcon>
+
+
+
+            {/* <form onSubmit={applyFilter} >
                 <label htmlFor="types">Select Types: </label>
 
                 <select id="types" name="types" onChange={(text) => getType(text.target.value)} >
@@ -19,7 +26,7 @@ const Form = ({ getType, applyFilter }) => {
                 </select>
 
                 <button type="submit">Apply</button>
-            </form>
+            </form> */}
         </>
     )
 }
