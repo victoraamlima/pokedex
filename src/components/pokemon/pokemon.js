@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
-import { getPokemonsData, getPokemonAbilities } from "../services";
+import { getPokemonsData, getPokemonAbilities } from "../../services";
 
 const Pokemon = () => {
     const [pokemonInfo, setPokemonsInfo] = useState({
