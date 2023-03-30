@@ -34,25 +34,31 @@ const Home = () => {
   return (
     <Section>
       <Header>
-        <Form />
-        <H1>Pokedex</H1>
+        <Background />
+        <Form2
+          types={types}
+          selectedTypes={selectedTypes}
+          onSelectedTypesChange={setSelectedTypes}
+        />
+        <H1 className="app">Pokedex</H1>
         <Theme>
           <IconTheme src={iconThemeDay} />
           <Circle />
         </Theme>
       </Header>
-      <Form2
-        types={types}
-        selectedTypes={selectedTypes}
-        onSelectedTypesChange={setSelectedTypes}
-      />
-      <PokemonList
-      types={types}
-      selectedTypes={selectedTypes}
-      />
+      <PokemonList types={types} selectedTypes={selectedTypes} />
     </Section>
   );
 };
+
+const Background = styled.div`
+  position: absolute;
+  top: -20px;
+  background: linear-gradient(180deg, #e84539 0%, #9f1910 100%);
+  height: 90px;
+  width: 100vw;
+  z-index: 0;
+`;
 
 const H1 = styled.h1`
   width: 150px;
@@ -77,26 +83,29 @@ const H1 = styled.h1`
 
 const Theme = styled.div`
   background: #ff4d03;
-  width: 90px;
-  height: 40px;
+  position: absolute;
+  right: 0;
+  width: 70px;
+  height: 30px;
   border-radius: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 7px;
+  margin-right: 5vw;
 `;
 
 const Circle = styled.span`
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-radius: 30px;
   background: #fff;
   display: block;
 `;
 
 const IconTheme = styled.img`
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 `;
 
 export { Home };
