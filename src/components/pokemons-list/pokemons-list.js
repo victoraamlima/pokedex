@@ -2,6 +2,22 @@ import { Link } from "react-router-dom";
 import { getPokemonList } from "../../services";
 import { useEffect, useState } from "react";
 import { ButtonMorePokemons } from "../button-more-pokemons/button-more-pokemons";
+import {
+  PokemonListContainer,
+  PokemonCard,
+  StyledLink,
+  CardInfo,
+  TypeImg,
+  PokemonImg,
+  TypesContainer,
+  PokemonName,
+  PokemonId,
+  StyledPokemonList,
+  BackgroundCover,
+} from "./styled";
+import { ThemeContext } from "../../contexts/theme-contexts";
+import React, { useContext } from "react";
+import { TypesColorsContext } from "../../contexts/pokemon-info/type-color-contexts";
 
 const PokemonList = ({ types, selectedTypes }) => {
   const [pokemonsList, setPokemonsInfo] = useState([]);
@@ -12,6 +28,9 @@ const PokemonList = ({ types, selectedTypes }) => {
     setQuantityOfPokemons(quantityOfPokemons + quantity);
   };
 
+  const { pokemonsTypesColors } = useContext(TypesColorsContext);
+  const { theme } = useContext(ThemeContext);
+
   useEffect(() => {
     const fetchData = async () => {
       const pokemonData = await getPokemonList(quantityOfPokemons);
@@ -21,82 +40,67 @@ const PokemonList = ({ types, selectedTypes }) => {
   }, [quantityOfPokemons]);
 
   const filteredItems = pokemonsList.filter(
-    (pokemon) => selectedTypes.size === 0 || pokemon.types.some(types => selectedTypes.has(types.type.name))
+    (pokemon) =>
+      selectedTypes.size === 0 ||
+      pokemon.types.some((types) => selectedTypes.has(types.type.name))
   );
 
-  console.log(filteredItems);
+
+  
 
   return (
-    <>
+    <StyledPokemonList>
       {/* <div>
                 <h3>Filter</h3>
 
                 <Form getType={getType} applyFilter={applyFilter} />
             </div> */}
-      <ul>
+      <PokemonListContainer>
         {filteredItems.map((pokemonInfo, index) => {
-          const pokemonId = pokemonInfo.id
+          const pokemonId = pokemonInfo.id;
+          let color = [];
 
           return (
-            <li key={pokemonInfo.name}>
+            <PokemonCard key={pokemonInfo.name} typeColor={color}>
               <Link to={`/pokemon/${pokemonInfo.name}`}>
-                <img
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
-                  alt={pokemonInfo.name}
-                />
-                <div>
-                  <h2>{pokemonInfo.name}</h2>
-                  <h3>{pokemonInfo.id}</h3>
-                  <img src={`../../images/types/grass.png`}></img>
-                  <img></img>
-                </div>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-
-      {/* <ul>
-        {pokemonsList.map((pokemonInfo, index) => {
-          const pokemonId = index + 1;
-
-          if (filterType === "all") {
-            return (
-              <li key={index}>
-                <Link to={`/pokemon/${pokemonInfo.name}`}>
-                  <img
+                <StyledLink>
+                  <BackgroundCover theme={theme} />
+                  <PokemonImg
                     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
                     alt={pokemonInfo.name}
                   />
-                  <div>
-                    <h2>{pokemonInfo.name}</h2>
-                    <h3>id</h3>
-                    <img src={`../../images/types/grass.png`}></img>
-                    <img></img>
-                  </div>
-                </Link>
-              </li>
-            );
-          }
-          return pokemonInfo.types.map((type, index) => {
-            if (filterType === type.type.name) {
-              return (
-                <li key={pokemonInfo.name}>
-                  <Link to={`/pokemon/${pokemonInfo.name}`}>
-                    <img
-                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
-                      alt={pokemonInfo.name}
-                    />
-                    <h2>{pokemonInfo.name}</h2>
-                  </Link>
-                </li>
-              );
-            }
-          });
+                  <CardInfo theme={theme}>
+                    <PokemonName theme={theme}>{pokemonInfo.name}</PokemonName>
+                    <PokemonId theme={theme}>#{pokemonInfo.id}</PokemonId>
+                    <TypesContainer>
+                      {pokemonInfo.types.map((pokemonType) => {
+                        const type = pokemonType.type.name;
+
+                        pokemonsTypesColors.forEach((pokemonType) => {
+                          if (type === pokemonType.type) {
+                            color.push(pokemonType.color);
+                          }
+                        });
+
+                        return (
+                          <TypeImg
+                            key={type}
+                            src={require(`../../images/types/${type}.png`)}
+                            alt={type}
+                          />
+                        );
+                      })}
+                    </TypesContainer>
+                  </CardInfo>
+                </StyledLink>
+              </Link>
+            </PokemonCard>
+          );
         })}
-      </ul> */}
+      </PokemonListContainer>
+
       <ButtonMorePokemons quantity={10} addMorePokemons={addMorePokemons} />
-    </>
+    </StyledPokemonList>
   );
 };
 

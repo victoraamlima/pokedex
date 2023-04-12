@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-// const styledFilter = styled.div
-
 const Span = styled.span`
   position: relative;
   display: flex;
@@ -38,36 +36,15 @@ const Span = styled.span`
 const ContainerFilterIcon = styled.div`
   width: 50px;
   height: 30px;
-  // background: #000;
   position: absolute;
   z-index: 1;
-
-  // &:hover {
-  //   background: #000;
-  // }
-
-  // &:hover + ${Span} {
-  //   // background: #000;
-  //   -webkit-box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 1);
-  //   -moz-box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 1);
-  //   box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 1);
-
-  //   &::before,
-  //   &::after {
-  //     content: "";
-  //     // background: #000;
-  //     -webkit-box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 1);
-  //     -moz-box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 1);
-  //     box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 1);
-  //   }
-  // }
+  cursor: pointer;
 `;
 
 const FilterIcon = styled.label`
   width: 55px;
   height: 30px;
   background: #fff;
-  // color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,21 +80,13 @@ const HamburgerFilter = styled.input`
 const Filter = styled.div`
   display: flex;
   flex-direction: column;
-  // position:
-  // margin-top: 50px;
-  // gap: 30px;
-
   overflow-x: hidden;
 `;
 
 const FilterCheckbox = styled.div`
   display: ${(props) => (props.checked ? "flex" : "none")};
-  // position: absolute;
-  background: #c43026;
-  // background: ${(props) => (props.checked ? "White" : "black")};
+  background: ${(props) => props.theme.header.backgroundFilter};
   border-top: 1px solid #770707;
-
-  // display: flex;
   flex-direction: column;
   flex-flow: column wrap;
   gap: 5px;
@@ -125,6 +94,7 @@ const FilterCheckbox = styled.div`
   width: 100vw;
   padding: 10px;
 `;
+
 const BoxInput = styled.input`
   all: unset;
   position: absolute;
@@ -136,17 +106,12 @@ const BoxInput = styled.input`
   left: -25px;
 
   &:checked::after {
-    // border: 3px solid #000;
-
     content: "X";
     position: absolute;
     top: -6px;
     left: 2px;
     color: #ffffff;
     font-size: 18px;
-    // width: 15px;
-    // height: 15px;
-    // background: #000;
   }
 `;
 
@@ -155,7 +120,9 @@ const LabelInput = styled.label`
   left: 30px;
   display: flex;
   min-width: 85px;
+  cursor: pointer;
 `;
+
 const LabelText = styled.span`
   color: #ffffff;
   font-weight: 500;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FilterIcon, Span } from "./styled";
 import {
   FilterCheckbox,
@@ -9,6 +9,9 @@ import {
   HamburgerFilter,
   ContainerFilterIcon,
 } from "./styled";
+import { ThemeContext } from "../../contexts/theme-contexts";
+
+
 
 const Form2 = ({ types, selectedTypes, onSelectedTypesChange }) => {
   const handleTypeChange = (event) => {
@@ -26,13 +29,14 @@ const Form2 = ({ types, selectedTypes, onSelectedTypesChange }) => {
     }
   };
 
+  const { theme } = useContext(ThemeContext);
   const [checked, setChecked] = useState(false);
 
   const handleHamburgerFilter = (event) => {
     setChecked(event.target.checked);
   };
 
-  console.log(checked);
+  // console.log(checked);
 
   return (
     <Filter>
@@ -42,7 +46,7 @@ const Form2 = ({ types, selectedTypes, onSelectedTypesChange }) => {
         <Span />
       </FilterIcon>
 
-      <FilterCheckbox checked={checked}>
+      <FilterCheckbox checked={checked} theme={theme}>
         {types.map((type) => {
           return (
             <React.Fragment key={type}>

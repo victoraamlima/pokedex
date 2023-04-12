@@ -1,16 +1,33 @@
 import { createGlobalStyle } from "styled-components";
 
+
 const GlobalStyle = createGlobalStyle`
+    html{
+     height: 100vh;
+     font-size: 10px;
+    }
+
+    li {
+     list-style-type: none;
+    }
+
     *{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        
+        text-decoration: none;
+    }
+
+    body{
+        height: 100%;
+    }
+    #root{
+        height: 100%;
     }
 
     body::-webkit-scrollbar {
-        // width: 17px;
-        width: 3vw;
+        width: 15px;
+        // max-width: 15px;
         // border: 0.1px solid #000;
     }
 
@@ -26,12 +43,8 @@ const GlobalStyle = createGlobalStyle`
 
     @font-face {
         font-family: 'Pokemon';
-        src: local('Pokemon'), url('../fonts/pokemon-solid.ttf') format('ttf'), url('../fonts/pokemon-solid.woff') format('woff'), ;
+        src: url('../fonts/pokemonSolidTTF.ttf') format('truetype'), url('../fonts/pokemonSolidWOFF.woff') format('woff'), ;
     }
-
-     
-    
-   
 `;
 
 export { GlobalStyle };
