@@ -1,15 +1,36 @@
 {
   "files": {
-    "main.css": "/pokemons/static/css/main.4c599cc7.css",
-    "main.js": "/pokemons/static/js/main.cec1249f.js",
+    "main.css": "/pokemons/static/css/main.a3eba4a8.css",
+    "main.js": "/pokemons/static/js/main.6fa53891.js",
     "static/js/787.02dc48f6.chunk.js": "/pokemons/static/js/787.02dc48f6.chunk.js",
+    "static/media/tipos.png": "/pokemons/static/media/tipos.95635ebf88abedf72fa9.png",
+    "static/media/pokemonSolidTTF.ttf": "/pokemons/static/media/pokemonSolidTTF.5d60be1f7ff5fcc21fc1.ttf",
+    "static/media/grass.png": "/pokemons/static/media/grass.51340f448e876a4aa061.png",
+    "static/media/bug.png": "/pokemons/static/media/bug.349e255e721da6cb840d.png",
+    "static/media/dark.png": "/pokemons/static/media/dark.a9106c4ecf2220757415.png",
+    "static/media/steel.png": "/pokemons/static/media/steel.8b8b3eefe437f7f53cbd.png",
+    "static/media/ghost.png": "/pokemons/static/media/ghost.468e0b6e17abc30c49b1.png",
+    "static/media/ice.png": "/pokemons/static/media/ice.9ef0ad7320d5594d96da.png",
+    "static/media/dragon.png": "/pokemons/static/media/dragon.c398c4be27b9e1f37aa3.png",
+    "static/media/psychic.png": "/pokemons/static/media/psychic.ba5766d89ee3942fc32b.png",
+    "static/media/fire.png": "/pokemons/static/media/fire.1436d8f58f8e3a896b1c.png",
+    "static/media/normal.png": "/pokemons/static/media/normal.7d6dc7aa5f0a3cfb0140.png",
+    "static/media/rock.png": "/pokemons/static/media/rock.b501ccd22b0ceeea944c.png",
+    "static/media/poison.png": "/pokemons/static/media/poison.5fcead4401dbe75dacbd.png",
+    "static/media/ground.png": "/pokemons/static/media/ground.ee4e6ba171024844b2fe.png",
+    "static/media/electric.png": "/pokemons/static/media/electric.c6fa06faca2ba784f3f6.png",
+    "static/media/water.png": "/pokemons/static/media/water.10a4602338cdfdb9e519.png",
+    "static/media/fighting.png": "/pokemons/static/media/fighting.7cacc86aaf02ac275440.png",
+    "static/media/flying.png": "/pokemons/static/media/flying.c013d857c10ba3cf04a7.png",
+    "static/media/fairy.png": "/pokemons/static/media/fairy.fa6bdcab0b6673e009fd.png",
+    "static/media/pokemonSolidWOFF.woff": "/pokemons/static/media/pokemonSolidWOFF.fe988a356d6027ef7f70.woff",
     "index.html": "/pokemons/index.html",
-    "main.4c599cc7.css.map": "/pokemons/static/css/main.4c599cc7.css.map",
-    "main.cec1249f.js.map": "/pokemons/static/js/main.cec1249f.js.map",
+    "main.a3eba4a8.css.map": "/pokemons/static/css/main.a3eba4a8.css.map",
+    "main.6fa53891.js.map": "/pokemons/static/js/main.6fa53891.js.map",
     "787.02dc48f6.chunk.js.map": "/pokemons/static/js/787.02dc48f6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4c599cc7.css",
-    "static/js/main.cec1249f.js"
+    "static/css/main.a3eba4a8.css",
+    "static/js/main.6fa53891.js"
   ]
 }
