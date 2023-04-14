@@ -119,6 +119,7 @@ const PokemonAbilities = styled.ul`
   border-radius: 15px;
   display: flex;
   flex-direction: column;
+  // align-items: center;
   padding: 20px 30px;
   gap: 25px;
   z-index: 1;
@@ -129,7 +130,6 @@ const PokemonAbilitiesTitle = styled.h3`
   line-height: 29px;
   color: ${({theme}) => theme.pokemonList.name};
   align-self: center;
-  width: 30%;
 `;
 const PokemonAbility = styled.li`
   display: grid;
