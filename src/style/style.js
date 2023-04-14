@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-
+import { breakpoints } from "./responsive";
 
 const GlobalStyle = createGlobalStyle`
     html{
@@ -24,6 +24,22 @@ const GlobalStyle = createGlobalStyle`
     #root{
         height: 100%;
     }
+
+    @media (max-width: ${breakpoints.large}px) {
+        html {
+          font-size: 7px;
+        }
+      }
+    @media (max-width: ${breakpoints.medium}px) {
+        html {
+        //   font-size: 5px;
+        }
+      }
+    @media (max-width: ${breakpoints.small}px) {
+        html {
+        //   font-size: 5px;
+        }
+      }
 
     body::-webkit-scrollbar {
         width: 15px;

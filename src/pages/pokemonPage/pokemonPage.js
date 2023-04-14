@@ -7,6 +7,7 @@ import { ThemeContext } from "../../contexts/theme-contexts";
 import React, { useContext, useState } from "react";
 import { ThemeTogglerButton } from "../../components/theme-toggler-button/theme-toggler-button";
 import { TypesColorsContext } from "../../contexts/pokemon-info/type-color-contexts";
+import { ButtonGoTop } from "../../components/button-go-top/button-go-top";
 
 const PokemonPage = (props) => {
   const { theme } = useContext(ThemeContext);
@@ -25,6 +26,7 @@ const PokemonPage = (props) => {
         </StyledHeader>
       </Header>
       <Pokemon name={props.name} />
+      <ButtonGoTop />
     </StyledPokemonPage>
   );
 };

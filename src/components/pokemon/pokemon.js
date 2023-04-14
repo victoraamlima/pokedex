@@ -68,36 +68,38 @@ const Pokemon = () => {
   }
 
   let color = [];
-  console.log("🚀 ~ file: pokemon.js:71 ~ Pokemon ~ color:", color)
 
   return (
     <StyledPokemon color={color}>
       <BackgroundCover theme={theme} borderRadius={"0"} />
       <PokemonHeader>
-        <PokemonTypes>
-          {pokemonInfo.types.map((pokemonType, index) => {
-            const type = pokemonType.type.name;
+        <div>
+          <PokemonName>{pokemonInfo.name}</PokemonName>
 
-            pokemonsTypesColors.forEach((pokemonType) => {
-              if (type === pokemonType.type) {
-                color.push(pokemonType.color);
-              }
-            });
-            return (
-              <PokemonType key={index}>
-                <PokemonTypeImage
-                  key={type}
-                  src={require(`../../images/types/${type}.png`)}
-                  alt={type}
-                />
-                <PokemonTypeName>{type}</PokemonTypeName>
-              </PokemonType>
-            );
-          })}
-        </PokemonTypes>
+          <PokemonTypes theme={theme}>
+            {pokemonInfo.types.map((pokemonType, index) => {
+              const type = pokemonType.type.name;
 
-        <PokemonName>{pokemonInfo.name}</PokemonName>
-        <PokemonId>#{pokemonInfo.id}</PokemonId>
+              pokemonsTypesColors.forEach((pokemonType) => {
+                if (type === pokemonType.type) {
+                  color.push(pokemonType.color);
+                }
+              });
+              return (
+                <PokemonType key={index}>
+                  <PokemonTypeImage
+                    key={type}
+                    src={require(`../../images/types/${type}.png`)}
+                    alt={type}
+                  />
+                  <PokemonTypeName theme={theme}>{type}</PokemonTypeName>
+                </PokemonType>
+              );
+            })}
+          </PokemonTypes>
+
+          <PokemonId>#{pokemonInfo.id}</PokemonId>
+        </div>
 
         <PokemonImage
           src={pokemonInfo.sprites.front_default}
@@ -105,24 +107,24 @@ const Pokemon = () => {
         />
       </PokemonHeader>
 
-      <PokemonAbilities>
-        <PokemonAbilitiesTitle>Abilities</PokemonAbilitiesTitle>
+      <PokemonAbilities theme={theme}>
+        <PokemonAbilitiesTitle theme={theme}>Abilities</PokemonAbilitiesTitle>
         {pokemonAbilities.map((x, index) => {
           return (
             <PokemonAbility key={index}>
-              <PokemonAbilityName>
+              <PokemonAbilityName theme={theme}>
                 {pokemonAbilities[index].name}
               </PokemonAbilityName>
 
               {pokemonAbilities[index].effect_entries.map((message, index) => {
                 if (message.language.name === "en") {
                   return (
-                    <PokemonAbilityText key={index}>
+                    <PokemonAbilityText theme={theme} key={index}>
                       {message.effect}
                     </PokemonAbilityText>
                   );
                 } else {
-                  <PokemonAbilityText key={index} />;
+                  <PokemonAbilityText theme={theme} key={index} />;
                 }
                 return null;
               })}
@@ -131,18 +133,18 @@ const Pokemon = () => {
         })}
       </PokemonAbilities>
 
-      <PokemonMoves>
-        <PokemonMovesTitle>Movies</PokemonMovesTitle>
+      <PokemonMoves theme={theme}>
+        <PokemonMovesTitle theme={theme}>Movies</PokemonMovesTitle>
         <Moves>
           {pokemonInfo.moves
             .slice(0, quantityOfMoves)
             .map((pokemonMove, index) => {
               return (
-                <PokemonMove key={index}>{pokemonMove.move.name}</PokemonMove>
+                <PokemonMove theme={theme} key={index}>{pokemonMove.move.name}</PokemonMove>
               );
             })}
         </Moves>
-        <MoreMoves onClick={() => addMoreMoves()}>Show More Moves</MoreMoves>
+        <MoreMoves theme={theme} onClick={() => addMoreMoves()}>Show More Moves</MoreMoves>
       </PokemonMoves>
     </StyledPokemon>
   );

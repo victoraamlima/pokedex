@@ -24,6 +24,7 @@ const StyledPokemonPage = styled.section`
   // height: 100%;
   // overflow: hidden;
   // overflow-x: hidden;
+  position: relative;
 `;
 
 export { HomeButton, StyledPokemonPage };
