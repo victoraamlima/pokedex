@@ -4,14 +4,12 @@ import { Background, H1, StyledHeader } from "../../components/header/styled";
 import { Pokemon } from "../../components/pokemon/pokemon";
 import { HomeButton, StyledPokemonPage } from "./styled";
 import { ThemeContext } from "../../contexts/theme-contexts";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { ThemeTogglerButton } from "../../components/theme-toggler-button/theme-toggler-button";
-import { TypesColorsContext } from "../../contexts/pokemon-info/type-color-contexts";
 import { ButtonGoTop } from "../../components/button-go-top/button-go-top";
 
 const PokemonPage = (props) => {
   const { theme } = useContext(ThemeContext);
-  const { pokemonsTypesColors } = useContext(TypesColorsContext);
 
   return (
     <StyledPokemonPage>

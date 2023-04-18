@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import test from "../../style/test.css";
 
 const StyledHeader = styled.header`
   display: flex;

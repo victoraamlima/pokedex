@@ -5,6 +5,4 @@ const breakpoints = {
   small: 530,
 };
 
-function aaa() {}
-
 export { breakpoints };

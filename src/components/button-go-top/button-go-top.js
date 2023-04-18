@@ -18,7 +18,7 @@ const ButtonGoTop = ({ quantity, addMorePokemons }) => {
       e.preventDefault();
       $("html, body").animate({ scrollTop: 0 }, 500);
     });
-  }, [buttonRef.current]);
+  }, []);
 
   return (
     <>

@@ -52,7 +52,7 @@ const Pokemon = () => {
       setPokemonsInfo(pokemonData);
     };
     fetchData();
-  }, []);
+  }, [name]);
 
   useEffect(() => {
     const fetchAbility = async () => {
