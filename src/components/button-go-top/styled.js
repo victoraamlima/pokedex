@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-const StyledButtonGoTop = styled.div`
+const StyledButtonGoTop = styled.a`
+  // all: unset;
   width: 6rem;
   height: 6rem;
-  position: absolute;
+  position: fixed;
   bottom: 2rem;
   right: 2rem;
   display: flex;

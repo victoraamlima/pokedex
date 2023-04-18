@@ -1,12 +1,13 @@
 import { PokemonList } from "../../components/pokemons-list/pokemons-list";
 import { Header } from "../../components/header/header";
-import { Form2 } from "../../components/form/form2";
+import { Form } from "../../components/form/form";
 import { Section } from "./styled";
 import { useState } from "react";
 import { StyledHeader, H1, Background } from "../../components/header/styled";
 import { ThemeTogglerButton } from "../../components/theme-toggler-button/theme-toggler-button";
 import { ThemeContext } from "../../contexts/theme-contexts";
 import React, { useContext } from "react";
+import { ButtonGoTop } from "../../components/button-go-top/button-go-top";
 
 const Home = () => {
   const types = [
@@ -29,8 +30,8 @@ const Home = () => {
     "steel",
     "water",
   ];
-  const { theme } = useContext(ThemeContext);
 
+  const { theme } = useContext(ThemeContext);
   const [selectedTypes, setSelectedTypes] = useState(new Set());
 
   return (
@@ -38,7 +39,7 @@ const Home = () => {
       <Header>
         <StyledHeader>
           <Background theme={theme} />
-          <Form2
+          <Form
             types={types}
             selectedTypes={selectedTypes}
             onSelectedTypesChange={setSelectedTypes}
@@ -48,6 +49,7 @@ const Home = () => {
         </StyledHeader>
       </Header>
       <PokemonList types={types} selectedTypes={selectedTypes} />
+      <ButtonGoTop />
     </Section>
   );
 };

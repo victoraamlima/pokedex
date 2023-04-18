@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { getPokemonList } from "../../services";
 import { useEffect, useState } from "react";
-import { ButtonMorePokemons } from "../button-more-pokemons/button-more-pokemons";
+import { ButtonMorePokemons } from "./button-more-pokemons/button-more-pokemons";
 import {
   PokemonListContainer,
   PokemonCard,
@@ -18,6 +18,7 @@ import {
 import { ThemeContext } from "../../contexts/theme-contexts";
 import React, { useContext } from "react";
 import { TypesColorsContext } from "../../contexts/pokemon-info/type-color-contexts";
+import { ButtonGoTop } from "../button-go-top/button-go-top";
 
 const PokemonList = ({ types, selectedTypes }) => {
   const [pokemonsList, setPokemonsInfo] = useState([]);
@@ -100,6 +101,7 @@ const PokemonList = ({ types, selectedTypes }) => {
       </PokemonListContainer>
 
       <ButtonMorePokemons quantity={10} addMorePokemons={addMorePokemons} />
+      {/* <ButtonGoTop /> */}
     </StyledPokemonList>
   );
 };
