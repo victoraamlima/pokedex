@@ -1,34 +1,66 @@
-import { useEffect, useState } from "react"
-import { FilterIcon, Span } from "./styled"
+import React, { useContext, useState } from "react";
+import { FilterIcon, Span } from "./styled";
+import {
+  FilterCheckbox,
+  Filter,
+  BoxInput,
+  LabelInput,
+  LabelText,
+  HamburgerFilter,
+  ContainerFilterIcon,
+} from "./styled";
+import { ThemeContext } from "../../contexts/theme-contexts";
 
-const Form = ({ getType, applyFilter }) => {
-    const [types, setTypes] = useState([
-        "all", "normal", "fire", "water", "grass", "flying", "fighting", "poison", "electric", "ground", "rock", "psychic", "ice", "bug", "ghost", "steel", "dragon", "dark", "fairy"
-    ])
+const Form = ({ types, selectedTypes, onSelectedTypesChange }) => {
+  const handleTypeChange = (event) => {
+    const type = event.target.value;
+    const checked = event.target.checked;
+    if (checked) {
+      onSelectedTypesChange(
+        (prevSelectedTypes) => new Set([...prevSelectedTypes, type])
+      );
+    } else {
+      onSelectedTypesChange(
+        (prevSelectedTypes) =>
+          new Set([...prevSelectedTypes].filter((t) => t !== type))
+      );
+    }
+  };
 
-    return (
-        <>
-            <FilterIcon>
-                <Span />
-            </FilterIcon>
+  const { theme } = useContext(ThemeContext);
+  const [checked, setChecked] = useState(false);
 
+  const handleHamburgerFilter = (event) => {
+    setChecked(event.target.checked);
+  };
 
+  return (
+    <Filter>
+      <FilterIcon>
+        <ContainerFilterIcon />
+        <HamburgerFilter type={"checkbox"} onChange={handleHamburgerFilter} />
+        <Span />
+      </FilterIcon>
 
-            {/* <form onSubmit={applyFilter} >
-                <label htmlFor="types">Select Types: </label>
+      <FilterCheckbox checked={checked} theme={theme}>
+        {types.map((type) => {
+          return (
+            <React.Fragment key={type}>
+              <LabelInput>
+                <LabelText>{type}</LabelText>
+                <BoxInput
+                  type="checkbox"
+                  value={type}
+                  checked={selectedTypes.has(type)}
+                  onChange={handleTypeChange}
+                />
+              </LabelInput>
+            </React.Fragment>
+          );
+        })}
+      </FilterCheckbox>
+    </Filter>
+  );
+};
 
-                <select id="types" name="types" onChange={(text) => getType(text.target.value)} >
-                    {types.map((type, index) => {
-                        return (
-                            <option id="type" key={index} value={type} > {type}</option>
-                        )
-                    })}
-                </select>
-
-                <button type="submit">Apply</button>
-            </form> */}
-        </>
-    )
-}
-
-export { Form }
+export { Form };

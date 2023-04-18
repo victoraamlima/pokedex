@@ -7,6 +7,7 @@ const StyledPokemonList = styled.div`
   // margin-top: 105px;
   padding: 35px 10px;
   gap: 35px;
+  position: relative;
 `;
 
 const PokemonListContainer = styled.ul`

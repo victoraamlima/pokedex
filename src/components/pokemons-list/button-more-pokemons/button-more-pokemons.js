@@ -1,5 +1,5 @@
 import { Button } from "./styled";
-import { ThemeContext } from "../../contexts/theme-contexts";
+import { ThemeContext } from "../../../contexts/theme-contexts";
 import React, { useContext } from "react";
 
 const ButtonMorePokemons = ({ quantity, addMorePokemons }) => {

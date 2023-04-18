@@ -3,7 +3,6 @@ import { Home } from "./home/home"
 import { PokemonPage } from "./pokemonPage/pokemonPage"
 
 const AppRoutes = () => (
-    
     <BrowserRouter>
         <Routes>
             <Route exact path="/pokemons" element={<Home />} />
