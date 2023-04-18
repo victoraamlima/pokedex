@@ -208,6 +208,7 @@ const MoreMoves = styled.button`
   line-height: 2.4rem;
   letter-spacing: 0.2rem;
   color: #f4f4f4;
+  cursor: pointer;
 `;
 
 export {

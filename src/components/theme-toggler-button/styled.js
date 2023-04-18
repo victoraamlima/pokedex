@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+const StyledThemeTogglerButton = styled.button`
+  all: unset;
+  position: absolute;
+  right: 0;
+  margin-right: 3vw;
+  cursor: pointer;
+`;
+
 const Theme = styled.div`
   background: ${(props) => props.theme.header.themeToggle.themeToggleButton};
   width: 70px;
@@ -24,11 +32,4 @@ const IconTheme = styled.img`
   height: 20px;
 `;
 
-const TTB = styled.button`
-  all: unset;
-  position: absolute;
-  right: 0;
-  margin-right: 3vw;
-`;
-
-export { IconTheme, Circle, Theme, TTB };
+export { IconTheme, Circle, Theme, StyledThemeTogglerButton };

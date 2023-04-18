@@ -1,12 +1,12 @@
 import { ThemeContext, themes } from "../../contexts/theme-contexts";
 import React, { useContext } from "react";
-import { Circle, IconTheme, TTB, Theme } from "./styled";
+import { Circle, IconTheme, StyledThemeTogglerButton, Theme } from "./styled";
 
 const ThemeTogglerButton = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   return (
-    <TTB
+    <StyledThemeTogglerButton
       onClick={() =>
         setTheme(theme === themes.light ? themes.dark : themes.light)
       }
@@ -15,7 +15,7 @@ const ThemeTogglerButton = () => {
         <IconTheme src={theme.header.themeToggle.icon} />
         <Circle />
       </Theme>
-    </TTB>
+    </StyledThemeTogglerButton>
   );
 };
 
