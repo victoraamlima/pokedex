@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const Span = styled.span`
   position: relative;
@@ -31,7 +31,7 @@ const Span = styled.span`
     background: #fff;
     border-radius: 5px;
   }
-`;
+`
 
 const ContainerFilterIcon = styled.div`
   width: 50px;
@@ -39,7 +39,7 @@ const ContainerFilterIcon = styled.div`
   position: absolute;
   z-index: 1;
   cursor: pointer;
-`;
+`
 
 const FilterIcon = styled.label`
   width: 55px;
@@ -63,7 +63,7 @@ const FilterIcon = styled.label`
       box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 1);
     }
   }
-`;
+`
 
 const HamburgerFilter = styled.input`
   all: unset;
@@ -75,25 +75,24 @@ const HamburgerFilter = styled.input`
       background: #9e9e9e;
     }
   }
-`;
+`
 
 const Filter = styled.div`
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
-`;
+`
 
 const FilterCheckbox = styled.div`
-  display: ${(props) => (props.checked ? "flex" : "none")};
+  display: ${(props) => (props.checked ? "grid" : "none")};
   background: ${(props) => props.theme.header.backgroundFilter};
   border-top: 1px solid #770707;
-  flex-direction: column;
-  flex-flow: column wrap;
-  gap: 5px;
-  height: 150px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
   width: 100vw;
-  padding: 10px;
-`;
+  padding: 10px 30px 15px 15px;
+`
 
 const BoxInput = styled.input`
   all: unset;
@@ -113,7 +112,7 @@ const BoxInput = styled.input`
     color: #ffffff;
     font-size: 18px;
   }
-`;
+`
 
 const LabelInput = styled.label`
   position: relative;
@@ -121,11 +120,12 @@ const LabelInput = styled.label`
   display: flex;
   min-width: 85px;
   cursor: pointer;
-`;
+`
 
 const LabelText = styled.span`
   color: #ffffff;
   font-weight: 500;
+  font-size: 15px;
 
   &:hover {
     color: #000;
@@ -133,7 +133,7 @@ const LabelText = styled.span`
   &::first-letter {
     text-transform: uppercase;
   }
-`;
+`
 
 export {
   FilterIcon,
@@ -145,4 +145,4 @@ export {
   LabelText,
   HamburgerFilter,
   ContainerFilterIcon,
-};
+}
