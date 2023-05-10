@@ -1,34 +1,40 @@
-import { ThemeContext } from "../../contexts/theme-contexts";
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { StyledButtonGoTop, StyledArrow } from "./styled";
-import $ from "jquery";
+import { ThemeContext } from "../../contexts/theme-contexts"
+import React, { useContext, useEffect, useRef, useState } from "react"
+import { StyledButtonGoTop, StyledArrow } from "./styled"
+import $ from "jquery"
 
-const ButtonGoTop = ({ quantity, addMorePokemons }) => {
-  const { theme } = useContext(ThemeContext);
+const ButtonGoTop = () => {
+  const { theme } = useContext(ThemeContext)
 
-  const [pageYPosition, setPageYPosition] = useState(0);
-  const buttonRef = useRef(null);
-  function getPageYAfterScroll() {
-    setPageYPosition(window.scrollY);
-  }
-  window.addEventListener("scroll", getPageYAfterScroll);
+  const [pageYPosition, setPageYPosition] = useState(false)
+
+  const buttonRef = useRef(null)
 
   useEffect(() => {
-    $(buttonRef.current).click((e) => {
-      e.preventDefault();
-      $("html, body").animate({ scrollTop: 0 }, 500);
-    });
-  }, []);
+    function getPageYAfterScroll() {
+      if (window.scrollY > 0) {
+        setPageYPosition(true)
+      } else {
+        setPageYPosition(false)
+      }
+    }
+
+    window.addEventListener("scroll", getPageYAfterScroll)
+
+    $(buttonRef.current).click(() => {
+      $("html, body").animate({ scrollTop: 0 }, 500)
+    })
+  }, [pageYPosition])
 
   return (
     <>
-      {pageYPosition > 0 && (
-        <StyledButtonGoTop ref={buttonRef} href="#" theme={theme}>
+      {pageYPosition && (
+        <StyledButtonGoTop ref={buttonRef} theme={theme}>
           <StyledArrow />
         </StyledButtonGoTop>
       )}
     </>
-  );
-};
+  )
+}
 
-export { ButtonGoTop };
+export { ButtonGoTop }
