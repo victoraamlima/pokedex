@@ -1,7 +1,7 @@
 {
   "name": "quest-teste-tecnico-pokemon",
   "version": "0.1.0",
-  "homepage": "https://victoraamlima.github.io/pokedex/",
+  "homepage": "https://victoraamlima.github.io/pokedex",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
