@@ -1,7 +1,5 @@
 const Header = ({ children }) => {
-    return (
-            children
-    )
+  return children
 }
 
 export { Header }

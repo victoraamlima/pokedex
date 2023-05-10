@@ -1,23 +1,20 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const StyledPokemonList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  // margin-top: 105px;
   padding: 35px 10px;
   gap: 35px;
   position: relative;
-`;
+`
 
 const PokemonListContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
-  // padding: 70px;
-  // height: 100%;
-`;
+`
 
 const PokemonCard = styled.li`
   width: 190px;
@@ -27,7 +24,7 @@ const PokemonCard = styled.li`
       props.typeColor[1] ? props.typeColor[1] : props.typeColor[0]
     } 50%)`};
   border-radius: 15px;
-`;
+`
 
 const StyledLink = styled.div`
   display: flex;
@@ -35,25 +32,24 @@ const StyledLink = styled.div`
   align-items: center;
   position: relative;
   height: 100%;
-`;
+`
 
 const BackgroundCover = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
   background: ${(props) => props.theme.pokemonList.backgroundCover};
-  border-radius: ${(props) => props.borderRadius? props.borderRadius : "15px"};
+  border-radius: ${(props) =>
+    props.borderRadius ? props.borderRadius : "15px"};
   top: 0;
   left: 0;
-`;
+`
 
 const PokemonImg = styled.img`
   width: 135px;
   height: 135px;
   object-fit: contain;
-  //   transform: scale(1.1)
-  1
-`;
+`
 
 const CardInfo = styled.div`
   display: flex;
@@ -66,7 +62,7 @@ const CardInfo = styled.div`
   gap: 3px;
   padding: 5px 0;
   z-index: 1;
-`;
+`
 
 const PokemonName = styled.h2`
   font-size: 20px;
@@ -76,7 +72,7 @@ const PokemonName = styled.h2`
   &::first-letter {
     text-transform: uppercase;
   }
-`;
+`
 
 const PokemonId = styled.h3`
   font-size: 20px;
@@ -86,18 +82,18 @@ const PokemonId = styled.h3`
   &::first-letter {
     text-transform: uppercase;
   }
-`;
+`
 
 const TypesContainer = styled.div`
   margin-top: 5px;
   display: flex;
   gap: 20px;
-`;
+`
 
 const TypeImg = styled.img`
   width: 38px;
   height: 38px;
-`;
+`
 
 export {
   PokemonListContainer,
@@ -111,4 +107,4 @@ export {
   PokemonName,
   PokemonId,
   StyledPokemonList,
-};
+}

@@ -1,5 +1,6 @@
-import React, { useContext, useState } from "react";
-import { FilterIcon, Span } from "./styled";
+import React, { useContext, useState } from "react"
+import { FilterIcon, Span } from "./styled"
+import { ThemeContext } from "../../contexts/theme-contexts"
 import {
   FilterCheckbox,
   Filter,
@@ -8,31 +9,31 @@ import {
   LabelText,
   HamburgerFilter,
   ContainerFilterIcon,
-} from "./styled";
-import { ThemeContext } from "../../contexts/theme-contexts";
+} from "./styled"
 
 const Form = ({ types, selectedTypes, onSelectedTypesChange }) => {
   const handleTypeChange = (event) => {
-    const type = event.target.value;
-    const checked = event.target.checked;
+    const type = event.target.value
+    const checked = event.target.checked
+
     if (checked) {
       onSelectedTypesChange(
         (prevSelectedTypes) => new Set([...prevSelectedTypes, type])
-      );
+      )
     } else {
       onSelectedTypesChange(
         (prevSelectedTypes) =>
           new Set([...prevSelectedTypes].filter((t) => t !== type))
-      );
+      )
     }
-  };
+  }
 
-  const { theme } = useContext(ThemeContext);
-  const [checked, setChecked] = useState(false);
+  const { theme } = useContext(ThemeContext)
+  const [checked, setChecked] = useState(false)
 
   const handleHamburgerFilter = (event) => {
-    setChecked(event.target.checked);
-  };
+    setChecked(event.target.checked)
+  }
 
   return (
     <Filter>
@@ -56,11 +57,11 @@ const Form = ({ types, selectedTypes, onSelectedTypesChange }) => {
                 />
               </LabelInput>
             </React.Fragment>
-          );
+          )
         })}
       </FilterCheckbox>
     </Filter>
-  );
-};
+  )
+}
 
-export { Form };
+export { Form }

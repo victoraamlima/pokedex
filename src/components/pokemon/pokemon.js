@@ -1,10 +1,14 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { getPokemonsData, getPokemonAbilities } from "../../services";
-import { TypesColorsContext } from "../../contexts/pokemon-info/type-color-contexts";
+import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { getPokemonsData, getPokemonAbilities } from "../../services"
+import { TypesColorsContext } from "../../contexts/pokemon-info/type-color-contexts"
+import { BackgroundCover } from "../pokemons-list/styled"
+import { ThemeContext } from "../../contexts/theme-contexts"
+import React, { useContext } from "react"
 import {
   StyledPokemon,
   PokemonHeader,
+  ContainerPokemonInfo,
   PokemonImage,
   PokemonName,
   PokemonTypes,
@@ -22,10 +26,8 @@ import {
   PokemonId,
   PokemonTypeImage,
   Moves,
-} from "./styled";
-import { BackgroundCover } from "../pokemons-list/styled";
-import { ThemeContext } from "../../contexts/theme-contexts";
-import React, { useContext } from "react";
+  PokemonIdContainer,
+} from "./styled"
 
 const Pokemon = () => {
   const [pokemonInfo, setPokemonsInfo] = useState({
@@ -36,55 +38,55 @@ const Pokemon = () => {
     types: [],
     abilities: [{ ability: { name: "battle-armor" } }],
     moves: [],
-  });
+  })
 
-  const [pokemonAbilities, setPokemonAbilities] = useState([]);
-  const [quantityOfMoves, setQuantityOfMoves] = useState(10);
+  const [pokemonAbilities, setPokemonAbilities] = useState([])
+  const [quantityOfMoves, setQuantityOfMoves] = useState(10)
 
-  const { pokemonsTypesColors } = useContext(TypesColorsContext);
-  const { theme } = useContext(ThemeContext);
+  const { pokemonsTypesColors } = useContext(TypesColorsContext)
+  const { theme } = useContext(ThemeContext)
 
-  const { name } = useParams();
+  const { name } = useParams()
 
   useEffect(() => {
     const fetchData = async () => {
-      const pokemonData = await getPokemonsData(name);
-      setPokemonsInfo(pokemonData);
-    };
-    fetchData();
-  }, [name]);
+      const pokemonData = await getPokemonsData(name)
+      setPokemonsInfo(pokemonData)
+    }
+    fetchData()
+  }, [name])
 
   useEffect(() => {
     const fetchAbility = async () => {
-      const pokemonData = await getPokemonAbilities(pokemonInfo.abilities);
+      const pokemonData = await getPokemonAbilities(pokemonInfo.abilities)
 
-      setPokemonAbilities(pokemonData);
-    };
-    fetchAbility();
-  }, [pokemonInfo]);
+      setPokemonAbilities(pokemonData)
+    }
+    fetchAbility()
+  }, [pokemonInfo])
 
   function addMoreMoves() {
-    setQuantityOfMoves(quantityOfMoves + 10);
+    setQuantityOfMoves(quantityOfMoves + 10)
   }
 
-  let color = [];
+  let color = []
 
   return (
     <StyledPokemon color={color}>
       <BackgroundCover theme={theme} borderRadius={"0"} />
       <PokemonHeader>
-        <div>
+        <ContainerPokemonInfo>
           <PokemonName>{pokemonInfo.name}</PokemonName>
 
           <PokemonTypes theme={theme}>
             {pokemonInfo.types.map((pokemonType, index) => {
-              const type = pokemonType.type.name;
+              const type = pokemonType.type.name
 
               pokemonsTypesColors.forEach((pokemonType) => {
                 if (type === pokemonType.type) {
-                  color.push(pokemonType.color);
+                  color.push(pokemonType.color)
                 }
-              });
+              })
               return (
                 <PokemonType key={index}>
                   <PokemonTypeImage
@@ -94,12 +96,13 @@ const Pokemon = () => {
                   />
                   <PokemonTypeName theme={theme}>{type}</PokemonTypeName>
                 </PokemonType>
-              );
+              )
             })}
           </PokemonTypes>
-
-          <PokemonId>#{pokemonInfo.id}</PokemonId>
-        </div>
+          <PokemonIdContainer>
+            <PokemonId>#{pokemonInfo.id}</PokemonId>
+          </PokemonIdContainer>
+        </ContainerPokemonInfo>
 
         <PokemonImage
           src={pokemonInfo.sprites.front_default}
@@ -122,14 +125,14 @@ const Pokemon = () => {
                     <PokemonAbilityText theme={theme} key={index}>
                       {message.effect}
                     </PokemonAbilityText>
-                  );
+                  )
                 } else {
-                  <PokemonAbilityText theme={theme} key={index} />;
+                  ;<PokemonAbilityText theme={theme} key={index} />
                 }
-                return null;
+                return null
               })}
             </PokemonAbility>
-          );
+          )
         })}
       </PokemonAbilities>
 
@@ -140,14 +143,18 @@ const Pokemon = () => {
             .slice(0, quantityOfMoves)
             .map((pokemonMove, index) => {
               return (
-                <PokemonMove theme={theme} key={index}>{pokemonMove.move.name}</PokemonMove>
-              );
+                <PokemonMove theme={theme} key={index}>
+                  {pokemonMove.move.name}
+                </PokemonMove>
+              )
             })}
         </Moves>
-        <MoreMoves theme={theme} onClick={() => addMoreMoves()}>Show More Moves</MoreMoves>
+        <MoreMoves theme={theme} onClick={() => addMoreMoves()}>
+          Show More Moves
+        </MoreMoves>
       </PokemonMoves>
     </StyledPokemon>
-  );
-};
+  )
+}
 
-export { Pokemon };
+export { Pokemon }

@@ -1,19 +1,5 @@
-.app {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  background-color: aquamarine;
-  font-family: "Pokemon";
-}
-
-/* @font-face {
-  font-family: 'Pokemon';
-  src: local('Pokemon'), url('./fonts/pokemon-solid.ttf') format('TrueType'), url('./fonts/pokemon-solid.woff') format('Web Open Font Format'), ;
-} */
-
 @font-face {
   font-family: "Pokemon";
   src: local("Pokemon"), url("./fonts/pokemonSolidTTF.ttf") format("truetype"),
     url("./fonts/pokemonSolidWOFF.woff") format("woff");
 }
-

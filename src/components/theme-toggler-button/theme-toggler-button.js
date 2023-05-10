@@ -1,9 +1,9 @@
-import { ThemeContext, themes } from "../../contexts/theme-contexts";
-import React, { useContext } from "react";
-import { Circle, IconTheme, StyledThemeTogglerButton, Theme } from "./styled";
+import { ThemeContext, themes } from "../../contexts/theme-contexts"
+import React, { useContext } from "react"
+import { Circle, IconTheme, StyledThemeTogglerButton, Theme } from "./styled"
 
 const ThemeTogglerButton = () => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(ThemeContext)
 
   return (
     <StyledThemeTogglerButton
@@ -16,7 +16,7 @@ const ThemeTogglerButton = () => {
         <Circle />
       </Theme>
     </StyledThemeTogglerButton>
-  );
-};
+  )
+}
 
-export { ThemeTogglerButton };
+export { ThemeTogglerButton }

@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { createContext } from "react";
-import iconThemeDay from "../images/icon-theme-day.png";
-import iconThemeDark from "../images/icon-theme-dark.png";
-import { useEffect } from "react";
+import { useState } from "react"
+import { createContext } from "react"
+import iconThemeDay from "../images/icon-theme-day.png"
+import iconThemeDark from "../images/icon-theme-dark.png"
+import { useEffect } from "react"
 
 const themes = {
   light: {
@@ -21,7 +21,7 @@ const themes = {
       info: "#CCF4FD",
       backgroundCover: "transparent",
       buttonMorePokemons: {
-        background: "linear-gradient(178.9deg, #e7453a -25%, #a31c13 83.96%)",
+        background: "linear-gradient(180deg, #e7453a -25%, #a31c13 83.96%)",
       },
     },
   },
@@ -45,24 +45,24 @@ const themes = {
       },
     },
   },
-};
+}
 
-const ThemeContext = createContext({});
+const ThemeContext = createContext({})
 
 const ThemeProvider = (props) => {
   const [theme, setTheme] = useState(
     JSON.parse(localStorage.getItem("theme")) || themes.light
-  );
+  )
 
   useEffect(() => {
-    localStorage.setItem("theme", JSON.stringify(theme));
-  }, [theme]);
+    localStorage.setItem("theme", JSON.stringify(theme))
+  }, [theme])
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       {props.children}
     </ThemeContext.Provider>
-  );
-};
+  )
+}
 
-export { themes, ThemeContext, ThemeProvider };
+export { themes, ThemeContext, ThemeProvider }

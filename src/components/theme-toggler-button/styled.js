@@ -1,12 +1,12 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const StyledThemeTogglerButton = styled.button`
   all: unset;
   position: absolute;
-  right: 0;
-  margin-right: 3vw;
+  right: 10px;
+  top: 20px;
   cursor: pointer;
-`;
+`
 
 const Theme = styled.div`
   background: ${(props) => props.theme.header.themeToggle.themeToggleButton};
@@ -17,7 +17,7 @@ const Theme = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 7px;
-`;
+`
 
 const Circle = styled.span`
   width: 20px;
@@ -25,11 +25,11 @@ const Circle = styled.span`
   border-radius: 30px;
   background: #fff;
   display: block;
-`;
+`
 
 const IconTheme = styled.img`
   width: 20px;
   height: 20px;
-`;
+`
 
-export { IconTheme, Circle, Theme, StyledThemeTogglerButton };
+export { IconTheme, Circle, Theme, StyledThemeTogglerButton }

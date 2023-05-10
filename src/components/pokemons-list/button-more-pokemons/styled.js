@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const Button = styled.button`
   all: unset;
@@ -24,6 +24,6 @@ const Button = styled.button`
     border: 6px solid #8c1b24;
     color: #8c1b24;
   }
-`;
+`
 
-export { Button };
+export { Button }

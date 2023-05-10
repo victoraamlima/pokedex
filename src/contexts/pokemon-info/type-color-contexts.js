@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext } from "react"
 
 const pokemonsTypesColors = [
   { type: "bug", color: "#77C107" },
@@ -19,24 +19,16 @@ const pokemonsTypesColors = [
   { type: "rock", color: "#CBB88A" },
   { type: "steel", color: "#328FA4" },
   { type: "water", color: "#0091D9" },
-];
+]
 
-const TypesColorsContext = createContext([]);
+const TypesColorsContext = createContext([])
 
 const TypesColorsProvider = (props) => {
-  // const [theme, setTheme] = useState(
-  //   JSON.parse(localStorage.getItem("theme")) || themes.light
-  // );
-
-  // useEffect(() => {
-  //   localStorage.setItem("theme", JSON.stringify(theme));
-  // }, [theme]);
-
   return (
     <TypesColorsContext.Provider value={{ pokemonsTypesColors }}>
       {props.children}
     </TypesColorsContext.Provider>
-  );
-};
+  )
+}
 
-export { TypesColorsProvider, TypesColorsContext };
+export { TypesColorsProvider, TypesColorsContext }

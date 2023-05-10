@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-import { getPokemonList } from "../../services";
-import { useEffect, useState } from "react";
-import { ButtonMorePokemons } from "./button-more-pokemons/button-more-pokemons";
-import { ThemeContext } from "../../contexts/theme-contexts";
-import React, { useContext } from "react";
-import { TypesColorsContext } from "../../contexts/pokemon-info/type-color-contexts";
+import { Link } from "react-router-dom"
+import { getPokemonList } from "../../services"
+import { useEffect, useState } from "react"
+import { ButtonMorePokemons } from "./button-more-pokemons/button-more-pokemons"
+import { ThemeContext } from "../../contexts/theme-contexts"
+import React, { useContext } from "react"
+import { TypesColorsContext } from "../../contexts/pokemon-info/type-color-contexts"
 import {
   PokemonListContainer,
   PokemonCard,
@@ -17,44 +17,48 @@ import {
   PokemonId,
   StyledPokemonList,
   BackgroundCover,
-} from "./styled";
+} from "./styled"
 
-const PokemonList = ({ types, selectedTypes }) => {
-  const [pokemonsList, setPokemonsInfo] = useState([]);
+const PokemonList = ({ selectedTypes }) => {
+  const [pokemonsList, setPokemonsInfo] = useState([])
 
-  const [quantityOfPokemons, setQuantityOfPokemons] = useState(10);
+  const [quantityOfPokemons, setQuantityOfPokemons] = useState(10)
+  const [filteredItems, setFilteredItems] = useState([])
+  const { pokemonsTypesColors } = useContext(TypesColorsContext)
+  const { theme } = useContext(ThemeContext)
 
   const addMorePokemons = (quantity) => {
-    setQuantityOfPokemons(quantityOfPokemons + quantity);
-  };
-
-  const { pokemonsTypesColors } = useContext(TypesColorsContext);
-  const { theme } = useContext(ThemeContext);
+    setQuantityOfPokemons(quantityOfPokemons + quantity)
+  }
 
   useEffect(() => {
     const fetchData = async () => {
-      const pokemonData = await getPokemonList(quantityOfPokemons);
-      setPokemonsInfo(pokemonData);
-    };
-    fetchData();
-  }, [quantityOfPokemons]);
+      const pokemonData = await getPokemonList(quantityOfPokemons)
+      setPokemonsInfo(pokemonData)
+    }
+    fetchData()
+  }, [quantityOfPokemons])
 
-  const filteredItems = pokemonsList.filter(
-    (pokemon) =>
-      selectedTypes.size === 0 ||
-      pokemon.types.some((types) => selectedTypes.has(types.type.name))
-  );
+  useEffect(() => {
+    setFilteredItems(
+      pokemonsList.filter(
+        (pokemon) =>
+          selectedTypes.size === 0 ||
+          pokemon.types.some((types) => selectedTypes.has(types.type.name))
+      )
+    )
+  }, [pokemonsList, quantityOfPokemons, selectedTypes])
 
   return (
     <StyledPokemonList>
       <PokemonListContainer>
-        {filteredItems.map((pokemonInfo, index) => {
-          const pokemonId = pokemonInfo.id;
-          let color = [];
+        {filteredItems.map((pokemonInfo) => {
+          const pokemonId = pokemonInfo.id
+          let color = []
 
           return (
             <PokemonCard key={pokemonInfo.name} typeColor={color}>
-              <Link to={`/pokemon/${pokemonInfo.name}`}>
+              <Link to={`/${pokemonInfo.name}`}>
                 <StyledLink>
                   <BackgroundCover theme={theme} />
                   <PokemonImg
@@ -66,13 +70,13 @@ const PokemonList = ({ types, selectedTypes }) => {
                     <PokemonId theme={theme}>#{pokemonInfo.id}</PokemonId>
                     <TypesContainer>
                       {pokemonInfo.types.map((pokemonType) => {
-                        const type = pokemonType.type.name;
+                        const type = pokemonType.type.name
 
                         pokemonsTypesColors.forEach((pokemonType) => {
                           if (type === pokemonType.type) {
-                            color.push(pokemonType.color);
+                            color.push(pokemonType.color)
                           }
-                        });
+                        })
 
                         return (
                           <TypeImg
@@ -80,20 +84,20 @@ const PokemonList = ({ types, selectedTypes }) => {
                             src={require(`../../images/types/${type}.png`)}
                             alt={type}
                           />
-                        );
+                        )
                       })}
                     </TypesContainer>
                   </CardInfo>
                 </StyledLink>
               </Link>
             </PokemonCard>
-          );
+          )
         })}
       </PokemonListContainer>
 
       <ButtonMorePokemons quantity={10} addMorePokemons={addMorePokemons} />
     </StyledPokemonList>
-  );
-};
+  )
+}
 
-export { PokemonList, Link };
+export { PokemonList, Link }
