@@ -9,7 +9,7 @@ function App() {
     <ThemeProvider>
       <TypesColorsProvider>
         <GlobalStyle />
-        <AppRoutes className="app" />
+        <AppRoutes/>
       </TypesColorsProvider>
     </ThemeProvider>
   )
