@@ -2,9 +2,9 @@
 
 > Status do Projeto: em desenvolvimento
 
->Link para o [Deploy](https://victoraamlima.github.io/Pokedex/)
+>Link para o [Deploy](https://victoraamlima.github.io/pokedex/)
 
->Link para o [Repositório](https://github.com/victoraamlima/Pokedex)
+>Link para o [Repositório](https://github.com/victoraamlima/pokedex)
 
 ## Linguagens
 
